@@ -1,27 +1,27 @@
-Инструкция по развертыванию:
+РРЅСЃС‚СЂСѓРєС†РёСЏ РїРѕ СЂР°Р·РІРµСЂС‚С‹РІР°РЅРёСЋ:
 
-1. Установите необходимые зависимости:
+1. РЈСЃС‚Р°РЅРѕРІРёС‚Рµ РЅРµРѕР±С…РѕРґРёРјС‹Рµ Р·Р°РІРёСЃРёРјРѕСЃС‚Рё:
 
-Выполните команду для восстановления зависимостей:
+Р’С‹РїРѕР»РЅРёС‚Рµ РєРѕРјР°РЅРґСѓ РґР»СЏ РІРѕСЃСЃС‚Р°РЅРѕРІР»РµРЅРёСЏ Р·Р°РІРёСЃРёРјРѕСЃС‚РµР№:
 dotnet restore
-либо
+Р»РёР±Рѕ
 dotnet add package Microsoft.EntityFrameworkCore
 dotnet add package Microsoft.EntityFrameworkCore.SqlServer
 dotnet add package Microsoft.EntityFrameworkCore.Tools
 dotnet add package AutoMapper
 
-2. Настройте строку подключения к базе данных в appsettings.json: 
-Убедитесь, что в файле appsettings.json указана корректная строка подключения:
+2. РќР°СЃС‚СЂРѕР№С‚Рµ СЃС‚СЂРѕРєСѓ РїРѕРґРєР»СЋС‡РµРЅРёСЏ Рє Р±Р°Р·Рµ РґР°РЅРЅС‹С… РІ appsettings.json: 
+РЈР±РµРґРёС‚РµСЃСЊ, С‡С‚Рѕ РІ С„Р°Р№Р»Рµ appsettings.json СѓРєР°Р·Р°РЅР° РєРѕСЂСЂРµРєС‚РЅР°СЏ СЃС‚СЂРѕРєР° РїРѕРґРєР»СЋС‡РµРЅРёСЏ:
 {
   "ConnectionStrings": {
     "DefaultConnection": "Server=(localdb)\\mssqllocaldb;Database=ContactDb;Trusted_Connection=True;"
   }
 }
 
-3. Для создания базы данных выполните миграции:
+3. Р”Р»СЏ СЃРѕР·РґР°РЅРёСЏ Р±Р°Р·С‹ РґР°РЅРЅС‹С… РІС‹РїРѕР»РЅРёС‚Рµ РјРёРіСЂР°С†РёРё:
 dotnet ef migrations add Initial 
 dotnet ef database update
 
-4. Запустите приложение командой:
+4. Р—Р°РїСѓСЃС‚РёС‚Рµ РїСЂРёР»РѕР¶РµРЅРёРµ РєРѕРјР°РЅРґРѕР№:
 dotnet run
-или из Visual Studio.
+РёР»Рё РёР· Visual Studio.
