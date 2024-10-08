@@ -1,4 +1,10 @@
 
+using Microsoft.EntityFrameworkCore;
+using WebApi.Business;
+using WebApi.Domain;
+using WebApi.Mapping;
+using WebApi.Persistence;
+
 namespace WebApi
 {
     public class Program
@@ -11,6 +17,14 @@ namespace WebApi
 
             builder.Services.AddControllers();
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
+            builder.Services.AddDbContext<ContactDbContext>(options =>
+                options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+            builder.Services.AddScoped<IContactRepository, ContactRepository>();
+            builder.Services.AddScoped<ContactService>();
+
+            builder.Services.AddAutoMapper(typeof(ContactMappingProfile));
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
 
